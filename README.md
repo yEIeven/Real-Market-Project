@@ -6,3 +6,13 @@ extracting prices directly via the XPath of products on their web pages. As a re
 
 The frontend will allow users to enter the name of a product and get its current price, along with other functionalities, such as querying a list of products to return the total value.
 This project is being developed by Miguel Bacellar with the intention of addressing a real demand, anticipating technological advancements, and meeting the needs of consumers who seek convenience and savings when shopping.
+The project was made in a pattern that is MVC 
+
+Main folders with code:
+ "ApplicationDbContext" that connects to the database
+ "FuncionarioController" that is the main controller 
+ "FuncionarioModel" what shows the id and the itens that the api will get 
+ "Scraping" the main scraping where gets the information of the website
+ 
+ 
+
