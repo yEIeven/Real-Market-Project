@@ -29,18 +29,15 @@ namespace WebApi.Controllers
         public async Task<ActionResult<ServiceResponse<FuncionarioModel>>> ScrapeAndSaveFuncionario()
         {
             string url = "https://www.supermercadosguanabara.com.br/produtos/42";
-
-            // Faz o scraping do produto
-            var (productName, price) = await _scrapingService.GetProductFromSiteAsync(url);
-
-            // Verifica se o scraping retornou algum valor
+            
+            var (productName, price) = await _scrapingService.GetProductFromSiteAsync(url);  
             if (!string.IsNullOrEmpty(productName))
             {
-                // Insere o produto como um novo funcionário no banco de dados
+              
                 var novoFuncionario = new FuncionarioModel
                 {
                     Item = productName,
-                    Preço = price, // Use o preço obtido pelo scraping
+                    Preço = price, /
                     SuperMercado = "Guanabara"
                 };
 
@@ -50,11 +47,10 @@ namespace WebApi.Controllers
                 {
                     return Ok(response);
                 }
-
                 return BadRequest(response);
             }
 
-            // Se o scraping não encontrou o produto, retorna NotFound
+        
             return NotFound(new ServiceResponse<FuncionarioModel> { Sucesso = false, Mensagem = "Produto não encontrado" });
         }
 
